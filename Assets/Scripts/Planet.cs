@@ -1,40 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using UnityEditor;
+
+
+
 
 public class Planet : MonoBehaviour
 {
-    public GameObject hand;
+    public static GameObject hand;
 
-    void GalaxyCenter(float x, float y, float z) { }
-    void SystemCenter(object parent, float x, float y, float z) { }
-
-
+    public void GalaxyCenter(float x, float y, float z) { }
+    public void SystemCenter(object parent, float x, float y, float z) { }
 
 
 
-
-    void PlanetGeneration(object parent, float r, float distance)
+    public static void Generation(string name, float r, float distance)
     {
         hand = Selection.activeGameObject = ObjectFactory.CreatePrimitive(PrimitiveType.Sphere);
-        hand.transform.position = Vector3.zero;
-        hand.name = "yyy"; 
+     //   hand.transform.position = Vector3(0f, 0f, 0f);
+        hand.transform.position=Vector3.zero;
+        hand.name = name; 
 
         // hand = GameObject.Find("Hand").;
 
 
-
-  
     }
 
 
-    void FixedUpdate()
-    {
-
-    }
 }
+
+
 
 /*
 

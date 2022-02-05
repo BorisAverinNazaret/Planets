@@ -1,16 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using static Planet;
 
 using UnityEditor;
 
 public class Main : MonoBehaviour
 {
-    public GameObject hand;
-
     void Start()
     {
- 
+            
+
+
+
+
+        Planet.Generation("Centre", 0f, 0f);
+        Planet.Generation("Sun", 10f, 20f);
     }
 
 
