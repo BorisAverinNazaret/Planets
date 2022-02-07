@@ -9,13 +9,9 @@ public class Main : MonoBehaviour
 {
     void Start()
     {
-            
 
-
-
-
-        Planet.Generation("Centre", 0f, 0f);
-        Planet.Generation("Sun", 10f, 20f);
+           Planet.Generation("Sun", 2000f, 0f, 0f, 5000f);
+        //   Planet.Generation("Z", 10f, new Vector3(5, 0, 5));
     }
 
 

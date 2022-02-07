@@ -8,7 +8,7 @@ using UnityEditor;
 
 public class Planet : MonoBehaviour
 {
-    public static GameObject hand; 
+    public static GameObject planet; 
     public static float x,y,z;
 
     public void GalaxyCenter(float x, float y, float z) { }
@@ -16,15 +16,16 @@ public class Planet : MonoBehaviour
 
 
 
-    public static void Generation(string name, float r, float distance)
+    public static void Generation(string name, float radius, float x, float y, float z)
     {
      //   hand.transform.position = Vector3.zero;
 
 
-        GameObject planet = Selection.activeGameObject = ObjectFactory.CreatePrimitive(PrimitiveType.Sphere);
-        planet.transform.position = new Vector3(x, y, z);
+        planet = ObjectFactory.CreatePrimitive(PrimitiveType.Sphere);
+    
+        planet.transform.position = new Vector3(x,y,z);
         planet.name = name;
-        planet.transform.localScale = new Vector3(r, r, r) ;
+        planet.transform.localScale = new Vector3(radius, radius, radius) ;
 
 
         // hand = GameObject.Find("Hand").;
