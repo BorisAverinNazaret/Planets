@@ -10,7 +10,8 @@ public class Main : MonoBehaviour
     void Start()
     {
 
-           Planet.Generation("Sun", 2000f, 0f, 0f, 5000f);
+        Planet.Generation("Sun", 200f, 0f, 0f, 0f);
+        Planet.Generation("Planet100", 1000f, 500f, 500f, 3000f);
         //   Planet.Generation("Z", 10f, new Vector3(5, 0, 5));
     }
 
