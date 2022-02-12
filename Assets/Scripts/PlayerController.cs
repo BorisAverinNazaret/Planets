@@ -40,9 +40,9 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKey("a"))
             {
-                             Debug.Log("sfgsdg");
-                //      _rotationX -= Input.GetKey("y")  * sensitivity;
-                //      _rotationX = Mathf.Clamp(_rotationX, -80, 80);
+                Debug.Log("sfgsdg");
+            //     _rotationX -= Input.GetKey("y")  * sensitivity;
+            //     _rotationX = Mathf.Clamp(_rotationX, -80, 80);
             //    _camera.localEulerAngles = new Vector3(_rotationX * sensitivity, 0, 0);
                 _camera.localEulerAngles = new Vector3(0, 0, _rotationX * sensitivity);
             }
