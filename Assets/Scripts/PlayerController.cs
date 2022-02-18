@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
         {
-//          if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)) speed_forsag = 3; else speed_forsag = 1;
+            //          if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)) speed_forsag = 3; else speed_forsag = 1;
+            if (Input.GetKey("0")) speed_forsag = 0;
             if (Input.GetKey("1")) speed_forsag = 1;
             if (Input.GetKey("2")) speed_forsag = 4;
             if (Input.GetKey("3")) speed_forsag = 50;
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             if (Input.GetKey("a"))
             {
