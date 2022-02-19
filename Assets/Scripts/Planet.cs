@@ -26,10 +26,12 @@ public class Planet : MonoBehaviour
         planet.transform.position = new Vector3(x,y,z);
         planet.name = name;
         planet.transform.localScale = new Vector3(radius, radius, radius) ;
-        planet.AddComponent<BoxCollider>();
-        planet.GetComponent<BoxCollider>().size = new Vector3(radius, radius, radius);
-        planet.GetComponent<BoxCollider>().isTrigger = true;
-     //   planet.GetComponent<MeshRenderer>().material = "Blue";
+        planet.AddComponent<SphereCollider>();
+        planet.GetComponent<SphereCollider>().radius = radius+100;
+        planet.GetComponent<SphereCollider>().isTrigger = true;
+
+        planet.AddComponent<Rigidbody>();
+        planet.GetComponent<Rigidbody>().isKinematic = true;
 
 
 

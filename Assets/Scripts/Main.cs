@@ -1,32 +1,41 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using static Planet;
-
 using UnityEditor;
 
 public class Main : MonoBehaviour
 {
     public const float ae  = 149597870.691f;
     public const float aeg = 1000f;
+
+
+    public static GameObject spaceship;
+
     void Start()
     {
-        // солнце 695500
-        //     
-        Planet.Generation("P000", 695f, 0f, 0f, 0f);
-        Planet.Generation("P100",           3f,  0f, 0f, aeg * 0.387f);
-        Planet.Generation("P200",        6.05f,  0f, 0f, aeg * 0.723f);
-        Planet.Generation("P300",       6.371f,  0f, 0f, aeg);
-        Planet.Generation("P400",         3.4f,  0f, 0f, aeg * 1.524f);
-        Planet.Generation("P500",        70.8f,  0f, 0f, aeg * 5.203f);
-        Planet.Generation("P600",        60.1f,  0f, 0f, aeg * 9.539f);
-        Planet.Generation("P700",       25.35f,  0f, 0f, aeg * 19.19f);
-        Planet.Generation("P800",        24.9f,  0f, 0f, aeg * 30.06f);
-        //   Planet.Generation("Z", 10f, new Vector3(5, 0, 5));
-        //   Debug.Log((4.87/2)+ (4.87%2));
+
+        Spaceship.Generation();
+
+
+
+        // 0.387   57894
+        Planet.Generation("P000",   700f, 0f, 0f, 0f);
+        Planet.Generation("P100",     30f,  0f, 0f, aeg * 0.387f);
+        Planet.Generation("P200",     60f,  0f, 0f, aeg * 0.723f);
+        Planet.Generation("P300",     65f,  0f, 0f, aeg);
+        Planet.Generation("P400",     30f,  0f, 0f, aeg * 1.524f);
+        Planet.Generation("P500",  100.8f,  0f, 0f, aeg * 5.203f);
+        Planet.Generation("P500",   90.1f,  0f, 0f, aeg * 9.539f);
+        Planet.Generation("P500",  50.35f,  0f, 0f, aeg * 19.19f);
+        Planet.Generation("P500",   50.9f,  0f, 0f, aeg * 30.06f);
+
 
     }
+    private void FixedUpdate() 
+    {
 
+    }
 }
 
 /*
