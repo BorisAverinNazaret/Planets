@@ -11,7 +11,7 @@ public class Spaceship : MonoBehaviour
     public static void Generation()
     {
         spaceship = ObjectFactory.CreatePrimitive(PrimitiveType.Cube);
-
+     
         spaceship.transform.position = new Vector3(3000, 0, 2000);
         spaceship.name = "spaceship";
         spaceship.transform.localScale = new Vector3(90, 20, 60);
@@ -21,6 +21,8 @@ public class Spaceship : MonoBehaviour
 
         spaceship.AddComponent<Rigidbody>();
         spaceship.GetComponent<Rigidbody>().isKinematic = true;
+
+        .transform.parent = spaceship.transform;
 
     }
 

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Spaceship;
 using UnityEditor;
 
 public class Main : MonoBehaviour
@@ -9,15 +10,14 @@ public class Main : MonoBehaviour
     public const float ae  = 149597870.691f;
     public const float aeg = 1000f;
 
-
-    public static GameObject spaceship;
+     
+    public static Spaceship sp;
 
     void Start()
     {
 
-        Spaceship.Generation();
-
-
+        sp = new Spaceship. .Generation();
+       
 
         // 0.387   57894
         Planet.Generation("P000",   700f, 0f, 0f, 0f);
@@ -30,7 +30,7 @@ public class Main : MonoBehaviour
         Planet.Generation("P500",  50.35f,  0f, 0f, aeg * 19.19f);
         Planet.Generation("P500",   50.9f,  0f, 0f, aeg * 30.06f);
 
-
+        
     }
     private void FixedUpdate() 
     {
