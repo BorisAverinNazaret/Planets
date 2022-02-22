@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Transform _camera;
 
-    private float _rotationX=1f;
+  //  private float _rotationX=1f;
 
     public float RotationSpeed = 30f;
     public float dumpAmt = 2f;

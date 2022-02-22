@@ -16,8 +16,10 @@ public class Main : MonoBehaviour
     void Start()
     {
 
-        sp = new Spaceship. .Generation();
-       
+        Spaceship.Generation();
+
+        Camera.main.transform.parent = spaceship.transform;
+        Camera.main.transform.parent.localScale = Vector3.one;
 
         // 0.387   57894
         Planet.Generation("P000",   700f, 0f, 0f, 0f);
