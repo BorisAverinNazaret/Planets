@@ -7,6 +7,13 @@ using UnityEditor;
 
 public class Main : MonoBehaviour
 {
+    //    Звук
+    //    public GameObject audio_object;
+    //    private AudioSource[] my_audio;
+    //    my_audio = audio_object.GetComponents<AudioSource>();
+    //    GetComponent<AudioSource>().Play();
+
+
     public const float ae  = 149597870.691f;
     public const float aeg = 1000f;
 
@@ -18,8 +25,15 @@ public class Main : MonoBehaviour
 
         Spaceship.Generation();
 
+
         Camera.main.transform.parent = spaceship.transform;
-        Camera.main.transform.parent.localScale = Vector3.one;
+        Camera.main.transform.localPosition = new Vector3(spaceship.transform.position.x-20f,spaceship.transform.position.y+20f, spaceship.transform.position.z);
+ //       Camera.main.transform.localPosition = spaceship.transform.localPosition;
+
+
+      //  Camera.main.transform.parent.localScale = Vector3.one;
+
+        Camera.main.farClipPlane = 1000000f;
 
         // 0.387   57894
         Planet.Generation("P000",   700f, 0f, 0f, 0f);

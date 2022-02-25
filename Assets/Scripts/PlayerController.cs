@@ -2,49 +2,41 @@
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 0f;
-    public float sensitivity = 0f;
-    public float sensitivityRotate = 0f;
+    public float speed = 1f;
+    public float sensitivity = 2f;
+    public float sensitivityRotateMouse = 4f;
 
+    public float RotationSpeed = 50f;
+    public float dumpAmt = 2f;
 
     [SerializeField] private Transform _camera;
 
-  //  private float _rotationX=1f;
-
-    public float RotationSpeed = 30f;
-    public float dumpAmt = 2f;
+    //  private float _rotationX=1f;
 
 
     private void FixedUpdate()
     {
+        if (Input.GetKey("0")) speed = 0f;
+        if (Input.GetKey("1")) speed = 1f; 
+        if (Input.GetKey("4")) speed = 25.5f;
+        if (Input.GetKey("5")) speed = 50f;
 
-        if (Input.GetKey("0")) speed = 0;
-        if (Input.GetKey("1")) speed = 1;
-        if (Input.GetKey("2")) speed = 4;
-        if (Input.GetKey("3")) speed = 30;
-
-
-
-        if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
-            //          if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)) speed_forsag = 3; else speed_forsag = 1;
-         
-
-            Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
-            transform.Translate(move * speed * Time.deltaTime);
-
-            transform.Rotate(Input.GetAxis("Mouse Y") * sensitivityRotate, Input.GetAxis("Mouse X") * sensitivityRotate, 0);
+            if (Input.GetKey("w") && Input.GetKey(KeyCode.LeftShift))
+                transform.Rotate((Vector3.forward * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
+            if (Input.GetKey("s") && Input.GetKey(KeyCode.LeftShift))
+                transform.Rotate((Vector3.back * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
+            if (Input.GetKey("a") && Input.GetKey(KeyCode.LeftShift))
+                transform.Rotate((Vector3.left * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
+            if (Input.GetKey("d") && Input.GetKey(KeyCode.LeftShift))
+                transform.Rotate((Vector3.right * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
         }
 
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
+        transform.Translate((move * speed) * (Time.deltaTime * sensitivity));
 
-        if (Input.GetKey("w") && Input.GetKey(KeyCode.LeftShift))
-            transform.Rotate((Vector3.forward * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
-        if (Input.GetKey("s") && Input.GetKey(KeyCode.LeftShift))
-            transform.Rotate((Vector3.back * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
-        if (Input.GetKey("a") && Input.GetKey(KeyCode.LeftShift))
-            transform.Rotate((Vector3.left * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
-        if (Input.GetKey("d") && Input.GetKey(KeyCode.LeftShift))
-            transform.Rotate((Vector3.right * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
+        transform.Rotate(Input.GetAxis("Mouse Y") * sensitivityRotateMouse, Input.GetAxis("Mouse X") * sensitivityRotateMouse, 0);
 
 
 
