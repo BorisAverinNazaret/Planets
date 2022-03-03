@@ -14,24 +14,62 @@ public class Main : MonoBehaviour
     //    GetComponent<AudioSource>().Play();
 
 
+    //   public AudioClip myClip;
+    //   void Start()
+    //   {
+    //   audio.PlayOneShot(myClip);
+
+
+    public int samplerate = 44100;
+    public float frequency = 440;
+
+
     public const float ae  = 149597870.691f;
     public const float aeg = 1000f;
 
-     
+    public static GameObject CENTRE;
+
     public static Spaceship sp;
 
     void Start()
     {
 
+        CENTRE = ObjectFactory.CreatePrimitive(PrimitiveType.Cube);
+        CENTRE.name = "CENTRE";
+        CENTRE.transform.position = Vector3.zero ;
+        CENTRE.transform.localScale = new Vector3(6f, 4f, 9f);
+        CENTRE.AddComponent<AudioSource>();
+    //    CENTRE.AddComponent<Renderer>();
+
+        Renderer rend = CENTRE.GetComponent<Renderer>();
+        rend.material.color = Color.red; // mainTexture = Resources.Load("Red") as Texture;
+
+
+
+
+        //    Create(string name, int lengthSamples, int channels, int frequency, bool stream);
+        AudioClip myClip = AudioClip.Create("Track 09", 500000, 1, 44100, false);
+        AudioSource aud = CENTRE.GetComponent<AudioSource>();
+        aud.volume /= 2;
+        aud.loop    = true;
+
+        aud.clip    = myClip;
+        aud.Play();
+
+
+
+
+
         Spaceship.Generation();
 
 
         Camera.main.transform.parent = spaceship.transform;
-        Camera.main.transform.localPosition = new Vector3(spaceship.transform.position.x-20f,spaceship.transform.position.y+20f, spaceship.transform.position.z);
- //       Camera.main.transform.localPosition = spaceship.transform.localPosition;
+//      Camera.main.transform.localPosition = Vector3.zero;
+        Camera.main.transform.localPosition = new Vector3(spaceship.transform.position.x, spaceship.transform.position.y+3f, spaceship.transform.position.z-5f);
 
 
-      //  Camera.main.transform.parent.localScale = Vector3.one;
+
+
 
         Camera.main.farClipPlane = 1000000f;
 

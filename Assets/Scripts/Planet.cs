@@ -9,10 +9,10 @@ using UnityEditor;
 public class Planet : MonoBehaviour
 {
     public static GameObject planet; 
-    public static float x,y,z;
+ //   public static float x,y,z;
 
-    public void GalaxyCenter(float x, float y, float z) { }
-    public void SystemCenter(object parent, float x, float y, float z) { }
+//    public void GalaxyCenter(float x, float y, float z) { }
+ //   public void SystemCenter(object parent, float x, float y, float z) { }
 
 
 
@@ -30,7 +30,7 @@ public class Planet : MonoBehaviour
         planet.AddComponent<Rigidbody>();
         planet.GetComponent<Rigidbody>().isKinematic = true;
 
-  //      planet.AddComponent<SphereCollider>();
+  //    planet.AddComponent<SphereCollider>();
         planet.GetComponent<SphereCollider>().radius = radius+100;
         planet.GetComponent<SphereCollider>().isTrigger = true;
 

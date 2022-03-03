@@ -16,11 +16,9 @@ public class Spaceship : MonoBehaviour
         spaceship.name                  = "spaceship";
         spaceship.transform.localScale  = new Vector3(6f, 4f, 9f);
 
-     // spaceship.transform.position    = new Vector3(3000, 0, -2000);
-     // spaceship.transform.Rotate(new Vector3(0,180,0) * Time.deltaTime);
-
-
-
+        spaceship.transform.position    = Vector3.zero;
+        // spaceship.transform.position    = new Vector3(3000, 0, -2000);
+        // spaceship.transform.Rotate(new Vector3(0,180,0) * Time.deltaTime);
 
         spaceship.AddComponent<Rigidbody>();
         spaceship.GetComponent<Rigidbody>().isKinematic = true;
