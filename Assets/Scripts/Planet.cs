@@ -27,13 +27,25 @@ public class Planet : MonoBehaviour
         planet.name = name;
         planet.transform.localScale = new Vector3(radius, radius, radius) ;
 
+        Renderer rend = planet.GetComponent<Renderer>();
+        rend.material.color = Color.blue;
+
         planet.AddComponent<Rigidbody>();
         planet.GetComponent<Rigidbody>().isKinematic = true;
 
   //    planet.AddComponent<SphereCollider>();
         planet.GetComponent<SphereCollider>().radius = radius+100;
         planet.GetComponent<SphereCollider>().isTrigger = true;
+/*
+        //    Create(string name, int lengthSamples, int channels, int frequency, bool stream);
+        AudioSource aud =  planet.GetComponent<AudioSource>();
+        AudioClip myClip =  AudioClip.Create("Track 09", 500000, 1, 44100, false);
+        aud.volume /= 2;
+        aud.loop = true;
 
+        aud.clip = myClip;
+        aud.Play();
+*/
 
 
 

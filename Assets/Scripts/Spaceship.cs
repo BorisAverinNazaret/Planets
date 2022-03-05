@@ -7,8 +7,6 @@ public class Spaceship : MonoBehaviour
 {
 
     public static GameObject spaceship;
-  //  private Transform _camera;
-  //  private Camera CameraMain;
 
     public static void Generation()
     {
@@ -27,7 +25,6 @@ public class Spaceship : MonoBehaviour
         spaceship.GetComponent<BoxCollider>().isTrigger = true;
 
         spaceship.AddComponent<PlayerController>();
-      //  spaceship.GetComponent<PlayerController>()._camera = spaceship.;
 
 
     }

@@ -29,16 +29,20 @@ public class PlayerController : MonoBehaviour
         }
         else 
         {
+            if (Input.GetKey("`")) speed = 0f;
             if (Input.GetKey("0")) speed = 0f;
             if (Input.GetKey("1")) speed = 1f;
-            if (Input.GetKey("2")) speed = 25f;
-            if (Input.GetKey("3")) speed = 50f;
-            if (Input.GetKey("4")) speed = 100f;
+            if (Input.GetKey("2")) speed = 5f;
+            if (Input.GetKey("3")) speed = 25f;
+            if (Input.GetKey("4")) speed = 125f;
             if (Input.GetKey("5")) speed = 1000f;
-            Debug.Log(ad_LR);
-            if (Input.GetKey("a")) ad_LR = ad_LR == 1f ? 0f : -1f; 
-     //       ComputeBuffer.
-            if (Input.GetKey("d")) ad_LR = ad_LR == -1f ? 0f : 1f;
+
+            //          Debug.Log(ad_LR);
+
+            if (Input.GetKey("a")) ad_LR = ad_LR == 0f ? -1f : 0f;
+            if (Input.GetKey("d")) ad_LR = ad_LR == 0f ?  1f : 0f;
+
+
             if (Input.GetKey("w")) ws_FB = 1f;
             if (Input.GetKey("s")) ws_FB = -1f;
         }
