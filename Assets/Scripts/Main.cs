@@ -20,6 +20,8 @@ public class Main : MonoBehaviour
     //   audio.PlayOneShot(myClip);
 
 
+
+
     public int samplerate = 44100;
     public float frequency = 440;
 
@@ -28,24 +30,28 @@ public class Main : MonoBehaviour
     public       float aeg = 10000f;
 
 
+
+
+
     public static GameObject CENTRE;
 
-    public static Spaceship sp;
+    public static Camera camSkybox, camMain, camBack;
 
     void Start()
     {
-
-        CENTRE = ObjectFactory.CreatePrimitive(PrimitiveType.Cube);
+        //  Объект визуализации центра
+        CENTRE = ObjectFactory.CreatePrimitive(PrimitiveType.Sphere);
         CENTRE.name = "CENTRE";
         CENTRE.transform.position = Vector3.zero ;
-        CENTRE.transform.localScale = new Vector3(6f, 4f, 9f);
-   //     CENTRE.AddComponent<AudioSource>();
-    //    CENTRE.AddComponent<Renderer>();
-
+        CENTRE.transform.localScale = new Vector3(0.06f, 0.06f, 0.06f);
         Renderer rend = CENTRE.GetComponent<Renderer>();
-        rend.material.color = Color.red; // mainTexture = Resources.Load("Red") as Texture;
+        rend.material.color = Color.yellow; 
+        // mainTexture = Resources.Load("Red") as Texture;
 
 
+
+        //     CENTRE.AddComponent<AudioSource>();
+   
 
         /*
                 //    Create(string name, int lengthSamples, int channels, int frequency, bool stream);
@@ -61,20 +67,41 @@ public class Main : MonoBehaviour
 
         Spaceship.Generation();
 
+        Renderer rend = CENTRE.GetComponent<Renderer>();
+        rend.material.color = Color.red;
+        // mainTexture = Resources.Load("Red") as Texture;
 
-        Camera.main.clearFlags = CameraClearFlags.Depth;
-        Camera.main.transform.parent = spaceship.transform;
-//      Camera.main.transform.localPosition = Vector3.zero;
-        Camera.main.transform.localPosition = new Vector3(spaceship.transform.position.x, spaceship.transform.position.y+3f, spaceship.transform.position.z-5f);
-        Camera.main.farClipPlane = 1000000f;
+
+
+        camMain = GetComponent<Camera>();
+        camMain = Camera.main;
+        //  camSkybox.farClipPlane = 100000f;
+
+
+
+        camSkybox = GetComponent<Camera>();
+
+
+
+
+        camBack = GetComponent<Camera>();
+
 
 
         /*
-                Camera CameraSkybox = gameObject.AddComponent<Camera>();
                 CameraSkybox.name = "CameraSkybox";
                 CameraSkybox.transform.localEulerAngles = new Vector3(0f, 0f, 60f);
-             //   CameraSkybox.targetDisplay. = target;
+                //   CameraSkybox.targetDisplay. = target;
+
         */
+
+
+        camMain.transform.parent = spaceship.transform;
+        camMain.transform.localPosition = new Vector3(spaceship.transform.position.x, spaceship.transform.position.y+3f, spaceship.transform.position.z-5f);
+
+
+
+
 
 
 
@@ -108,18 +135,12 @@ public class Main : MonoBehaviour
 GameObject.CreatePrimitive.
 
 Sphere Capsule Cylinder Cube Plane Quad
-
-CreateSystemPlanets
-
 Selection.activeGameObject = ObjectFactory.CreatePrimitive(PrimitiveType.Cube);
 
 
 public GameObject hand;
 hand = GameObject.Find("Hand");
 
-        // This returns the GameObject named Hand.
-        // Hand must not have a parent in the Hierarchy view.
-        hand = GameObject.Find("/Hand");
 
 
 

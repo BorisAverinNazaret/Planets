@@ -34,7 +34,7 @@ public class Planet : MonoBehaviour
         planet.GetComponent<Rigidbody>().isKinematic = true;
 
   //    planet.AddComponent<SphereCollider>();
-        planet.GetComponent<SphereCollider>().radius = radius+100;
+        planet.GetComponent<SphereCollider>().radius = radius+20;
         planet.GetComponent<SphereCollider>().isTrigger = true;
 /*
         //    Create(string name, int lengthSamples, int channels, int frequency, bool stream);
@@ -46,15 +46,7 @@ public class Planet : MonoBehaviour
         aud.clip = myClip;
         aud.Play();
 */
-
-
-
-        // hand = GameObject.Find("Hand").;
-
-
     }
-
-
 }
 
 
@@ -64,24 +56,6 @@ public class Planet : MonoBehaviour
  Debug.Log($"Модуль вектора: {transform.position.magnitude}, квадрат модуля {transform.position.sqrMagnitude}, напровление вектора {transform.position.normalized}");
 
         Debug.DrawRay(Vector3.zero, Vector3.up, Color.black);
-
-
-
-GameObject.CreatePrimitive.
-
-Sphere Capsule Cylinder Cube Plane Quad
-
-CreateSystemPlanets
-
-Selection.activeGameObject = ObjectFactory.CreatePrimitive(PrimitiveType.Cube);
-
-
-public GameObject hand;
-hand = GameObject.Find("Hand");
-
-        // This returns the GameObject named Hand.
-        // Hand must not have a parent in the Hierarchy view.
-        hand = GameObject.Find("/Hand");
 
 
 

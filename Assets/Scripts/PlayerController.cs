@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
+
 
 
 public class PlayerController : MonoBehaviour
@@ -11,7 +13,8 @@ public class PlayerController : MonoBehaviour
     public float dumpAmt = 2f;
 
     [SerializeField] private Transform spaceship;
-    //    [SerializeField] private Transform _camera;
+
+    private Camera camSkybox, camMain, camBack;
 
     //  private float _rotationX=1f;
     private float ad_LR=0f, ws_FB=0f;
@@ -19,33 +22,38 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+
+
+        if (Input.GetKeyDown(KeyCode.F))
         {
-
-            if (Input.GetKey("a") && Input.GetKey(KeyCode.LeftShift))
-                transform.Rotate((Vector3.forward * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
-            if (Input.GetKey("d") && Input.GetKey(KeyCode.LeftShift))
-                transform.Rotate((Vector3.back * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
+            camMain.enabled = !camMain.enabled;
+            camBack.enabled = !camBack.enabled;
         }
-        else 
-        {
-            if (Input.GetKey("`")) speed = 0f;
-            if (Input.GetKey("0")) speed = 0f;
-            if (Input.GetKey("1")) speed = 1f;
-            if (Input.GetKey("2")) speed = 5f;
-            if (Input.GetKey("3")) speed = 25f;
-            if (Input.GetKey("4")) speed = 125f;
-            if (Input.GetKey("5")) speed = 1000f;
-
-            //          Debug.Log(ad_LR);
-
-            if (Input.GetKey("a")) ad_LR = ad_LR == 0f ? -1f : 0f;
-            if (Input.GetKey("d")) ad_LR = ad_LR == 0f ?  1f : 0f;
 
 
-            if (Input.GetKey("w")) ws_FB = 1f;
-            if (Input.GetKey("s")) ws_FB = -1f;
-        }
+        if (Input.GetKey("q"))
+            transform.Rotate((Vector3.forward * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
+        if (Input.GetKey("e")) 
+            transform.Rotate((Vector3.back * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
+
+
+        if (Input.GetKeyDown("`")) speed = 0f;
+        if (Input.GetKeyDown("0")) speed = 0f;
+        if (Input.GetKeyDown("1")) speed = 1f;
+        if (Input.GetKeyDown("2")) speed = 5f;
+        if (Input.GetKeyDown("3")) speed = 25f;
+        if (Input.GetKeyDown("4")) speed = 125f;
+        if (Input.GetKeyDown("5")) speed = 1000f;
+
+
+
+        if (Input.GetKeyDown("a")) ad_LR = ad_LR == 0f ? -1f : 0f;
+        if (Input.GetKeyDown("d")) ad_LR = ad_LR == 0f ?  1f : 0f;
+
+
+        if (Input.GetKeyDown("w")) ws_FB = 1f;
+        if (Input.GetKeyDown("s")) ws_FB = -1f;
+      
 
         //     Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
         //        transform.Translate((move * speed) * (Time.deltaTime * sensitivity));
@@ -58,3 +66,5 @@ public class PlayerController : MonoBehaviour
     }
 
 }
+
+//  if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
