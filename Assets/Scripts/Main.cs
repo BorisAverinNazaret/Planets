@@ -44,15 +44,12 @@ public class Main : MonoBehaviour
         CENTRE.name = "CENTRE";
         CENTRE.transform.position = Vector3.zero ;
         CENTRE.transform.localScale = new Vector3(0.06f, 0.06f, 0.06f);
-        Renderer rend = CENTRE.GetComponent<Renderer>();
-        rend.material.color = Color.yellow; 
+        Renderer rendCENTRE = CENTRE.GetComponent<Renderer>();
+        rendCENTRE.material.color = Color.yellow; 
         // mainTexture = Resources.Load("Red") as Texture;
-
-
 
         //     CENTRE.AddComponent<AudioSource>();
    
-
         /*
                 //    Create(string name, int lengthSamples, int channels, int frequency, bool stream);
                 AudioClip myClip = AudioClip.Create("flight", 500000, 1, 44100, false);
@@ -67,24 +64,21 @@ public class Main : MonoBehaviour
 
         Spaceship.Generation();
 
-        Renderer rend = CENTRE.GetComponent<Renderer>();
-        rend.material.color = Color.red;
-        // mainTexture = Resources.Load("Red") as Texture;
-
-
 
         camMain = GetComponent<Camera>();
         camMain = Camera.main;
-        //  camSkybox.farClipPlane = 100000f;
+        camMain.farClipPlane = 1000000f;
 
 
 
         camSkybox = GetComponent<Camera>();
+   //     camSkybox.farClipPlane = 1000000f;
 
 
 
 
         camBack = GetComponent<Camera>();
+      //  camBack.farClipPlane = 1000000f;
 
 
 
@@ -97,7 +91,7 @@ public class Main : MonoBehaviour
 
 
         camMain.transform.parent = spaceship.transform;
-        camMain.transform.localPosition = new Vector3(spaceship.transform.position.x, spaceship.transform.position.y+3f, spaceship.transform.position.z-5f);
+        camMain.transform.localPosition = new Vector3(spaceship.transform.position.x, spaceship.transform.position.y+0.003f, spaceship.transform.position.z-0.005f);
 
 
 
