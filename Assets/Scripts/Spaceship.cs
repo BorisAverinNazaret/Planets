@@ -25,7 +25,7 @@ public class Spaceship : MonoBehaviour
         // mainTexture = Resources.Load("Red") as Texture;
  
         spaceship.AddComponent<Rigidbody>();
-        spaceship.GetComponent<Rigidbody>().isKinematic = false;
+        spaceship.GetComponent<Rigidbody>().isKinematic = true;
         spaceship.GetComponent<BoxCollider>().size = new Vector3(0.006f, 0.004f, 0.009f);
         spaceship.GetComponent<BoxCollider>().isTrigger = true;
         spaceship.AddComponent<PlayerController>();

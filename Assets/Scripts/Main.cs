@@ -19,7 +19,7 @@ public class Main : MonoBehaviour
     //   {
     //   audio.PlayOneShot(myClip);
 
-
+    public static GameObject planet;
 
 
     public int samplerate = 44100;
@@ -43,7 +43,7 @@ public class Main : MonoBehaviour
         CENTRE = ObjectFactory.CreatePrimitive(PrimitiveType.Sphere);
         CENTRE.name = "CENTRE";
         CENTRE.transform.position = Vector3.zero ;
-        CENTRE.transform.localScale = new Vector3(0.06f, 0.06f, 0.06f);
+        CENTRE.transform.localScale = new Vector3(0.006f, 0.006f, 0.006f);
         Renderer rendCENTRE = CENTRE.GetComponent<Renderer>();
         rendCENTRE.material.color = Color.yellow; 
         // mainTexture = Resources.Load("Red") as Texture;
@@ -103,21 +103,43 @@ public class Main : MonoBehaviour
 
 
         // временно
-        aeg = 10000; // 149 597 870.691f;
+        aeg = 10000f; // 149 597 870.691f;
 
         // Наклонение к плоскости Млечного Пути    60,19°
 
-        Planet.Generation("P000",    700f, 0f, 0f, 0f);          //  R 696000,7 км
-        Planet.Generation("P100",  2.439f, 0f, 0f, aeg * 0.387f);//  R   2439,7 км  L 0,386ае     m 0,055274 земной v 47,36 км/с  накл-ние 3,38°  относительно солн. экватора
-        Planet.Generation("P200",  6.051f, 0f, 0f, aeg * 0.723f);//  R   6051,8 km  L 0,72333199  m 0,815    земной v 35,02 км/с  накл-ние 3,86°
-        Planet.Generation("P300",  6.365f, 0f, 0f, aeg);         //  R   6365,0 km  L 1,00000261  m 1        земной v 29,79 км/с  накл-ние 7,155°
-        Planet.Generation("P400",  3.385f, 0f, 0f, aeg * 1.524f);//  R   3385,0 km  L 1,5235      m 0,107    земной v 24,13 км/с  накл-ние 5,65°
-        Planet.Generation("P500", 69.911f, 0f, 0f, aeg * 5.203f);//  R  69911,0 km  L 5,2042665   m 317,8    земной v 13,07 км/с  накл-ние 6,09°  Наклон оси 3,13°
-        Planet.Generation("P600", 60.1f,   0f, 0f, aeg * 9.539f);
-        Planet.Generation("P700",  5.35f,  0f, 0f, aeg * 19.19f);
-        Planet.Generation("P800",  5.9f,   0f, 0f, aeg * 30.06f);
+        Planet.Generation("P000", aeg/10f, 0f, 0f, 0f);           //  R 696000,7 км
 
-        
+
+
+     //   Planet.SetColorPlanet(gameObject P000, Color.yellow);
+        Planet.Generation("P100",  20.439f, 0f, 0f, aeg * 0.187f);//  R   2439,7 км  L 0,386ае     m 0,055274 земной v 47,36 км/с  накл-ние 3,38°  относительно солн. экватора
+        Planet.Generation("P200",  60.051f, 0f, 0f, aeg * 0.123f);//  R   6051,8 km  L 0,72333199  m 0,815    земной v 35,02 км/с  накл-ние 3,86°
+        Planet.Generation("P300",  60.365f, 0f, 0f, aeg * 0.223f);//  R   6365,0 km  L 1,00000261  m 1        земной v 29,79 км/с  накл-ние 7,155°
+        Planet.Generation("P400",  30.385f, 0f, 0f, aeg * 0.224f);//  R   3385,0 km  L 1,5235      m 0,107    земной v 24,13 км/с  накл-ние 5,65°
+        Planet.Generation("P500", 290.911f, 0f, 0f, aeg * 0.203f);//  R  69911,0 km  L 5,2042665   m 317,8    земной v 13,07 км/с  накл-ние 6,09°  Наклон оси 3,13°
+        Planet.Generation("P600", 200.1f,   0f, 0f, aeg * 0.339f);
+        Planet.Generation("P700",  50.35f,  0f, 0f, aeg * 0.49f);
+        Planet.Generation("P800",  50.9f,   0f, 0f, aeg * 0.56f);
+
+  //      var www = new Planet.Generation("P900", 50.9f, 0f, 0f, aeg * 0.66f); 
+
+        /*
+                // Солнечная система
+                Planet.Generation("P000", 700f, 0f, 0f, 0f);          //  R 696000,7 км
+                Planet.Generation("P100", 2.439f, 0f, 0f, aeg * 0.387f);//  R   2439,7 км  L 0,386ае     m 0,055274 земной v 47,36 км/с  накл-ние 3,38°  относительно солн. экватора
+                Planet.Generation("P200", 6.051f, 0f, 0f, aeg * 0.723f);//  R   6051,8 km  L 0,72333199  m 0,815    земной v 35,02 км/с  накл-ние 3,86°
+                Planet.Generation("P300", 6.365f, 0f, 0f, aeg);         //  R   6365,0 km  L 1,00000261  m 1        земной v 29,79 км/с  накл-ние 7,155°
+                Planet.Generation("P400", 3.385f, 0f, 0f, aeg * 1.524f);//  R   3385,0 km  L 1,5235      m 0,107    земной v 24,13 км/с  накл-ние 5,65°
+                Planet.Generation("P500", 69.911f, 0f, 0f, aeg * 5.203f);//  R  69911,0 km  L 5,2042665   m 317,8    земной v 13,07 км/с  накл-ние 6,09°  Наклон оси 3,13°
+                Planet.Generation("P600", 60.1f, 0f, 0f, aeg * 9.539f);
+                Planet.Generation("P700", 5.35f, 0f, 0f, aeg * 19.19f);
+                Planet.Generation("P800", 5.9f, 0f, 0f, aeg * 30.06f);
+        */
+
+
+
+
+
     }
     private void FixedUpdate() 
     {

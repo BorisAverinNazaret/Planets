@@ -22,8 +22,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-
         if (Input.GetKeyDown(KeyCode.F))
         {
             camMain.enabled = !camMain.enabled;
@@ -31,10 +29,8 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetKey("q"))
-            transform.Rotate((Vector3.forward * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
-        if (Input.GetKey("e")) 
-            transform.Rotate((Vector3.back * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
+        if (Input.GetKey("q")) transform.Rotate((Vector3.forward * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
+        if (Input.GetKey("e")) transform.Rotate((Vector3.back    * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
 
 
         if (Input.GetKeyDown("`")) speed = 0f;
@@ -43,7 +39,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown("2")) speed = 5f;
         if (Input.GetKeyDown("3")) speed = 25f;
         if (Input.GetKeyDown("4")) speed = 125f;
-        if (Input.GetKeyDown("5")) speed = 1000f;
+        if (Input.GetKeyDown("5")) speed = 200f;
 
 
 
@@ -64,7 +60,6 @@ public class PlayerController : MonoBehaviour
 
 
     }
-
 }
 
 //  if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
