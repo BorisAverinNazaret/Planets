@@ -2,11 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Spaceship;
 using UnityEditor;
 
-public class Main : MonoBehaviour
+using static Spaceship;
+
+
+class Main : MonoBehaviour
 {
+    
     //    Звук
     //    public GameObject audio_object;
     //    private AudioSource[] my_audio;
@@ -19,7 +22,18 @@ public class Main : MonoBehaviour
     //   {
     //   audio.PlayOneShot(myClip);
 
-    public static GameObject planet;
+
+
+
+
+
+
+
+
+
+
+
+    //  public static GameObject planet;
 
 
     public int samplerate = 44100;
@@ -33,9 +47,10 @@ public class Main : MonoBehaviour
 
 
 
-    public static GameObject CENTRE;
+    public static GameObject CENTRE, P000, P100;
 
     public static Camera camSkybox, camMain, camBack;
+
 
     void Start()
     {
@@ -98,30 +113,29 @@ public class Main : MonoBehaviour
 
 
 
-
+        //    P000. .GetComponent<Renderer>().material.color = Color.red;
 
 
 
         // временно
-        aeg = 10000f; // 149 597 870.691f;
-
-        // Наклонение к плоскости Млечного Пути    60,19°
-
-        Planet.Generation("P000", aeg/10f, 0f, 0f, 0f);           //  R 696000,7 км
+        aeg = 10000f; // 149 597 870.691f;           Наклонение к плоскости Млечного Пути    60,19°
 
 
 
-     //   Planet.SetColorPlanet(gameObject P000, Color.yellow);
-        Planet.Generation("P100",  20.439f, 0f, 0f, aeg * 0.187f);//  R   2439,7 км  L 0,386ае     m 0,055274 земной v 47,36 км/с  накл-ние 3,38°  относительно солн. экватора
-        Planet.Generation("P200",  60.051f, 0f, 0f, aeg * 0.123f);//  R   6051,8 km  L 0,72333199  m 0,815    земной v 35,02 км/с  накл-ние 3,86°
-        Planet.Generation("P300",  60.365f, 0f, 0f, aeg * 0.223f);//  R   6365,0 km  L 1,00000261  m 1        земной v 29,79 км/с  накл-ние 7,155°
-        Planet.Generation("P400",  30.385f, 0f, 0f, aeg * 0.224f);//  R   3385,0 km  L 1,5235      m 0,107    земной v 24,13 км/с  накл-ние 5,65°
-        Planet.Generation("P500", 290.911f, 0f, 0f, aeg * 0.203f);//  R  69911,0 km  L 5,2042665   m 317,8    земной v 13,07 км/с  накл-ние 6,09°  Наклон оси 3,13°
-        Planet.Generation("P600", 200.1f,   0f, 0f, aeg * 0.339f);
-        Planet.Generation("P700",  50.35f,  0f, 0f, aeg * 0.49f);
-        Planet.Generation("P800",  50.9f,   0f, 0f, aeg * 0.56f);
+        Planet P000 = new Planet("P000", aeg / 10f, 0f, 0f, 0f);           //  R 696000,7 км
+        P000.name = "Wdfg";
+        Debug.Log(P000.name + "ttt");
 
-  //      var www = new Planet.Generation("P900", 50.9f, 0f, 0f, aeg * 0.66f); 
+
+
+        Planet P100 = new Planet("P100",  20.439f, 0f, 0f, aeg * 0.187f);//  R   2439,7 км  L 0,386ае     m 0,055274 земной v 47,36 км/с  накл-ние 3,38°  относительно солн. экватора
+        Planet P200 = new Planet("P200",  60.051f, 0f, 0f, aeg * 0.123f);//  R   6051,8 km  L 0,72333199  m 0,815    земной v 35,02 км/с  накл-ние 3,86°
+        Planet P300 = new Planet("P300",  60.365f, 0f, 0f, aeg * 0.223f);//  R   6365,0 km  L 1,00000261  m 1        земной v 29,79 км/с  накл-ние 7,155°
+        Planet P400 = new Planet("P400",  30.385f, 0f, 0f, aeg * 0.224f);//  R   3385,0 km  L 1,5235      m 0,107    земной v 24,13 км/с  накл-ние 5,65°
+        Planet P500 = new Planet("P500", 290.911f, 0f, 0f, aeg * 0.203f);//  R  69911,0 km  L 5,2042665   m 317,8    земной v 13,07 км/с  накл-ние 6,09°  Наклон оси 3,13°
+        Planet P600 = new Planet("P600", 200.1f,   0f, 0f, aeg * 0.339f);
+        Planet P700 = new Planet("P700",  50.35f,  0f, 0f, aeg * 0.49f);
+        Planet P800 = new Planet("P800",  50.9f,   0f, 0f, aeg * 0.56f);
 
         /*
                 // Солнечная система
