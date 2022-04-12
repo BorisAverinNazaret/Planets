@@ -122,33 +122,28 @@ class Main : MonoBehaviour
 
 
 
-        Planet P000 = new Planet("P000", aeg / 10f, 0f, 0f, 0f);           //  R 696000,7 км
-        P000.name = "Wdfg";
-        Debug.Log(P000.name + "ttt");
-
-
-
-        Planet P100 = new Planet("P100",  20.439f, 0f, 0f, aeg * 0.187f);//  R   2439,7 км  L 0,386ае     m 0,055274 земной v 47,36 км/с  накл-ние 3,38°  относительно солн. экватора
-        Planet P200 = new Planet("P200",  60.051f, 0f, 0f, aeg * 0.123f);//  R   6051,8 km  L 0,72333199  m 0,815    земной v 35,02 км/с  накл-ние 3,86°
-        Planet P300 = new Planet("P300",  60.365f, 0f, 0f, aeg * 0.223f);//  R   6365,0 km  L 1,00000261  m 1        земной v 29,79 км/с  накл-ние 7,155°
-        Planet P400 = new Planet("P400",  30.385f, 0f, 0f, aeg * 0.224f);//  R   3385,0 km  L 1,5235      m 0,107    земной v 24,13 км/с  накл-ние 5,65°
-        Planet P500 = new Planet("P500", 290.911f, 0f, 0f, aeg * 0.203f);//  R  69911,0 km  L 5,2042665   m 317,8    земной v 13,07 км/с  накл-ние 6,09°  Наклон оси 3,13°
-        Planet P600 = new Planet("P600", 200.1f,   0f, 0f, aeg * 0.339f);
-        Planet P700 = new Planet("P700",  50.35f,  0f, 0f, aeg * 0.49f);
-        Planet P800 = new Planet("P800",  50.9f,   0f, 0f, aeg * 0.56f);
+        Planet P000 = new Planet("P000", aeg / 10f, new Vector3(0f,0f,           0f));//  R 696000,7 км
+        Planet P100 = new Planet("P100",   20.439f, new Vector3(0f,0f, aeg * 0.187f));//  R   2439,7 км  L 0,386ае     m 0,055274 земной v 47,36 км/с  накл-ние 3,38°  относительно солн. экватора
+        Planet P200 = new Planet("P200",   60.051f, new Vector3(0f,0f, aeg * 0.123f));//  R   6051,8 km  L 0,72333199  m 0,815    земной v 35,02 км/с  накл-ние 3,86°
+        Planet P300 = new Planet("P300",   60.365f, new Vector3(0f,0f, aeg * 0.223f));//  R   6365,0 km  L 1,00000261  m 1        земной v 29,79 км/с  накл-ние 7,155°
+        Planet P400 = new Planet("P400",   30.385f, new Vector3(0f,0f, aeg * 0.224f));//  R   3385,0 km  L 1,5235      m 0,107    земной v 24,13 км/с  накл-ние 5,65°
+        Planet P500 = new Planet("P500",  290.911f, new Vector3(0f,0f, aeg * 0.203f));//  R  69911,0 km  L 5,2042665   m 317,8    земной v 13,07 км/с  накл-ние 6,09°  Наклон оси 3,13°
+        Planet P600 = new Planet("P600",  200.1f  , new Vector3(0f,0f, aeg * 0.339f));
+        Planet P700 = new Planet("P700",   50.35f , new Vector3(0f,0f, aeg * 0.490f));
+        Planet P800 = new Planet("P800",   50.9f  , new Vector3(0f,0f, aeg * 0.560f));
 
         /*
-                // Солнечная система
-                Planet.Generation("P000", 700f, 0f, 0f, 0f);          //  R 696000,7 км
-                Planet.Generation("P100", 2.439f, 0f, 0f, aeg * 0.387f);//  R   2439,7 км  L 0,386ае     m 0,055274 земной v 47,36 км/с  накл-ние 3,38°  относительно солн. экватора
-                Planet.Generation("P200", 6.051f, 0f, 0f, aeg * 0.723f);//  R   6051,8 km  L 0,72333199  m 0,815    земной v 35,02 км/с  накл-ние 3,86°
-                Planet.Generation("P300", 6.365f, 0f, 0f, aeg);         //  R   6365,0 km  L 1,00000261  m 1        земной v 29,79 км/с  накл-ние 7,155°
-                Planet.Generation("P400", 3.385f, 0f, 0f, aeg * 1.524f);//  R   3385,0 km  L 1,5235      m 0,107    земной v 24,13 км/с  накл-ние 5,65°
-                Planet.Generation("P500", 69.911f, 0f, 0f, aeg * 5.203f);//  R  69911,0 km  L 5,2042665   m 317,8    земной v 13,07 км/с  накл-ние 6,09°  Наклон оси 3,13°
-                Planet.Generation("P600", 60.1f, 0f, 0f, aeg * 9.539f);
-                Planet.Generation("P700", 5.35f, 0f, 0f, aeg * 19.19f);
-                Planet.Generation("P800", 5.9f, 0f, 0f, aeg * 30.06f);
-        */
+               // Солнечная система
+               Planet.Generation("P000", 700f, 0f, 0f, 0f);          //  R 696000,7 км
+               Planet.Generation("P100", 2.439f, 0f, 0f, aeg * 0.387f);//  R   2439,7 км  L 0,386ае     m 0,055274 земной v 47,36 км/с  накл-ние 3,38°  относительно солн. экватора
+               Planet.Generation("P200", 6.051f, 0f, 0f, aeg * 0.723f);//  R   6051,8 km  L 0,72333199  m 0,815    земной v 35,02 км/с  накл-ние 3,86°
+               Planet.Generation("P300", 6.365f, 0f, 0f, aeg);         //  R   6365,0 km  L 1,00000261  m 1        земной v 29,79 км/с  накл-ние 7,155°
+               Planet.Generation("P400", 3.385f, 0f, 0f, aeg * 1.524f);//  R   3385,0 km  L 1,5235      m 0,107    земной v 24,13 км/с  накл-ние 5,65°
+               Planet.Generation("P500", 69.911f, 0f, 0f, aeg * 5.203f);//  R  69911,0 km  L 5,2042665   m 317,8    земной v 13,07 км/с  накл-ние 6,09°  Наклон оси 3,13°
+               Planet.Generation("P600", 60.1f, 0f, 0f, aeg * 9.539f);
+               Planet.Generation("P700", 5.35f, 0f, 0f, aeg * 19.19f);
+               Planet.Generation("P800", 5.9f, 0f, 0f, aeg * 30.06f);
+       */
 
 
 

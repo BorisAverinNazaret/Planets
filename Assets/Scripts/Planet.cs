@@ -5,20 +5,20 @@ using UnityEditor;
 
 
 
-public class Planet : MonoBehaviour
+public class Planet 
 
 {
     public GameObject planet;
 
-    [SerializeField] public string name; /* {get{return name;} set{name = value;}}*/
+    [SerializeField] public string fname; /* {get{return fname;} set{fname = value;}}*/
 
-    public Planet(string nameL, float radius, float x, float y, float z)
+    public Planet(string name, float radius, Vector3 _Vector3)
     {
 
         planet = ObjectFactory.CreatePrimitive(PrimitiveType.Sphere);
 
-        planet.transform.position = new Vector3(x, y, z);
-        planet.name = nameL;
+        planet.transform.position = _Vector3;
+        planet.name = name;
         planet.transform.localScale = new Vector3(radius, radius, radius);
 
         planet.AddComponent<Rigidbody>();
@@ -29,22 +29,12 @@ public class Planet : MonoBehaviour
         planet.GetComponent<SphereCollider>().isTrigger = true;
 
         planet.GetComponent<Renderer>().material.color = Color.red;
+
+
     }
 
 
-        public static void SetSuundplanet(GameObject objName, string soundName)
-    {
-        /*
-         //    Create(string name, int lengthSamples, int channels, int frequency, bool stream);
-        AudioSource aud =  planet.GetComponent<AudioSource>();
-        AudioClip myClip =  AudioClip.Create("Track 09", 500000, 1, 44100, false);
-        aud.volume /= 2;
-        aud.loop = true;
 
-        aud.clip = myClip;
-        aud.Play();
-        */
-    }
 
 }
 
@@ -52,11 +42,24 @@ public class Planet : MonoBehaviour
 
 /*
 
- Debug.Log($"Модуль вектора: {transform.position.magnitude}, квадрат модуля {transform.position.sqrMagnitude}, напровление вектора {transform.position.normalized}");
-
-        Debug.DrawRay(Vector3.zero, Vector3.up, Color.black);
-
+Debug.Log($"Модуль вектора: {transform.position.magnitude}, квадрат модуля {transform.position.sqrMagnitude}, напровление вектора {transform.position.normalized}");
+Debug.DrawRay(Vector3.zero, Vector3.up, Color.black);
 
 
+public static void SetSuundplanet(GameObject objName, string soundName)
+    {
+        
+        //    Create(string name, int lengthSamples, int channels, int frequency, bool stream);
+    AudioSource aud =  planet.GetComponent<AudioSource>();
+    AudioClip myClip =  AudioClip.Create("Track 09", 500000, 1, 44100, false);
+    aud.volume /= 2;
+    aud.loop = true;
 
+    aud.clip = myClip;
+    aud.Play();
+        
+    }
 */
+
+
+
