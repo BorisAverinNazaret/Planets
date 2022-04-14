@@ -3,55 +3,53 @@ using UnityEngine;
 
 
 
+
 public class PlayerController : MonoBehaviour
 {
+
+    /*
+    1. Ход корабля
+    2. Вращение корабля
+    */
+
+
+
     public float speed = 1f;
     public float sensitivity = 2f;
-    public float sensitivityRotateMouse = 4f;
+
 
     public float RotationSpeed = 0f;
     public float dumpAmt = 2f;
 
     [SerializeField] private Transform spaceship;
 
-    private Camera camSkybox, camMain, camBack;
+
 
     //  private float _rotationX=1f;
     private float ad_LR=0f, ws_FB=0f;
 
-
-    private void Update()
-    {
-        if(RotationSpeed != 0f)
-            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("e"))
-
-                transform.Rotate((Vector3.back * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
-        transform.Rotate((Input.GetKey("e") ? Vector3.forward : Vector3.back * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
-
-    }
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            camMain.enabled = !camMain.enabled;
-            camBack.enabled = !camBack.enabled;
-        }
+        //      Debug.Log("rr");
 
-        // передне-задний тормоз
-        if (Input.GetKeyDown("`")) speed = 0f;
-        if (Input.GetKeyDown("0")) speed = 0f;
- //       Debug.Log("rr");
+
+        // тормоз
+        if (Input.GetKeyDown("`") || Input.GetKeyDown("0")) speed = 0f;
+
 
         // Перевороты
-        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKey("q") || Input.GetKey("e"))) 
-            {
-            Debug.Log("----------");
-            Debug.Log(RotationSpeed);
-            if (Input.GetKey("q")) RotationSpeed = Math.Abs(RotationSpeed + 20f);
-            if (Input.GetKey("e")) RotationSpeed = Math.Abs(RotationSpeed - 20f);
-            Debug.Log(RotationSpeed);
-        };
-      //  transform.Rotate((Input.GetKey("e") ? Vector3.forward : Vector3.back * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("a")) RotationSpeed = Math.Abs(RotationSpeed + 20f);
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("d")) RotationSpeed = Math.Abs(RotationSpeed - 20f);
+
+
+        if (RotationSpeed != 0f)
+            transform.Rotate((RotationSpeed > 0 ? Vector3.forward : Vector3.back * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
+
+
+
+
+
+        //  transform.Rotate((Input.GetKey("e") ? Vector3.forward : Vector3.back * RotationSpeed) * (Time.deltaTime * dumpAmt), Space.Self);
 
 
 
@@ -60,34 +58,33 @@ public class PlayerController : MonoBehaviour
 
 
 
-        // выбор направления вращения
-        if (Input.GetKeyDown("a")) ad_LR = ad_LR == 0f ? -1f : 0f;
-        if (Input.GetKeyDown("d")) ad_LR = ad_LR == 0f ? 1f : 0f;
+        // ход
 
-
-
-
-
-
-
-
-
-
-
-        if (Input.GetKeyDown("w")) ws_FB = ws_FB == 0f ? -1f : 0f;
-        if (Input.GetKeyDown("s")) ws_FB = ws_FB == 0f ?  1f : 0f;
+        if (Input.GetKeyDown("w"))  speed = Math.Abs(speed + 20f);
+        if (Input.GetKeyDown("s"))  speed = Math.Abs(speed - 20f);
 
 
         //     Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
         //        transform.Translate((move * speed) * (Time.deltaTime * sensitivity));
-        transform.Translate((new Vector3(ad_LR, 0f, ws_FB) * speed) * (Time.deltaTime * sensitivity));
-
-        // Направление, выбор мышом
-        transform.Rotate(Input.GetAxis("Mouse Y") * sensitivityRotateMouse, Input.GetAxis("Mouse X") * sensitivityRotateMouse, 0);
-
+        if (speed != 0f)
+            transform.Translate(new Vector3(speed, 0f, RotationSpeed) * (Time.deltaTime * sensitivity));
+//        transform.Translate((new Vector3(speed, 0f, RotationSpeed) * speed) * (Time.deltaTime * sensitivity));
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //  if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
 

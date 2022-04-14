@@ -9,7 +9,7 @@ using static Spaceship;
 
 class Main : MonoBehaviour
 {
-    
+
     //    Звук
     //    public GameObject audio_object;
     //    private AudioSource[] my_audio;
@@ -21,15 +21,6 @@ class Main : MonoBehaviour
     //   void Start()
     //   {
     //   audio.PlayOneShot(myClip);
-
-
-
-
-
-
-
-
-
 
 
 
@@ -82,6 +73,8 @@ class Main : MonoBehaviour
 
         camMain = GetComponent<Camera>();
         camMain = Camera.main;
+        spaceship.AddComponent<CameraController>();
+
         camMain.farClipPlane = 1000000f;
 
 
