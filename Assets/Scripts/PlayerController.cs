@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
 
     //  private float _rotationX=1f;
-    private float ad_LR=0f, ws_FB=0f;
+ //   private float ad_LR=0f, ws_FB=0f;
 
     private void FixedUpdate()
     {
@@ -38,8 +38,8 @@ public class PlayerController : MonoBehaviour
 
 
         // Перевороты
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("a")) RotationSpeed = Math.Abs(RotationSpeed + 20f);
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("d")) RotationSpeed = Math.Abs(RotationSpeed - 20f);
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("a")) RotationSpeed = RotationSpeed + 20f; // Math.Abs(RotationSpeed - 20f)
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("d")) RotationSpeed = RotationSpeed - 20f;
 
 
         if (RotationSpeed != 0f)
@@ -60,8 +60,8 @@ public class PlayerController : MonoBehaviour
 
         // ход
 
-        if (Input.GetKeyDown("w"))  speed = Math.Abs(speed + 20f);
-        if (Input.GetKeyDown("s"))  speed = Math.Abs(speed - 20f);
+        if (Input.GetKeyDown("w"))  speed +=  20f;
+        if (Input.GetKeyDown("s"))  speed -= 20f;
 
 
         //     Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;

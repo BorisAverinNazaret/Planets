@@ -38,7 +38,7 @@ class Main : MonoBehaviour
 
 
 
-    public static GameObject CENTRE, P000, P100;
+    public static GameObject CENTRE, objSpaceship;
 
     public static Camera camSkybox, camMain, camBack;
 
@@ -51,11 +51,11 @@ class Main : MonoBehaviour
         CENTRE.transform.position = Vector3.zero ;
         CENTRE.transform.localScale = new Vector3(0.006f, 0.006f, 0.006f);
         Renderer rendCENTRE = CENTRE.GetComponent<Renderer>();
-        rendCENTRE.material.color = Color.yellow; 
+        rendCENTRE.material.color = Color.yellow;
         // mainTexture = Resources.Load("Red") as Texture;
 
         //     CENTRE.AddComponent<AudioSource>();
-   
+
         /*
                 //    Create(string name, int lengthSamples, int channels, int frequency, bool stream);
                 AudioClip myClip = AudioClip.Create("flight", 500000, 1, 44100, false);
@@ -68,25 +68,11 @@ class Main : MonoBehaviour
 
         */
 
-        Spaceship.Generation();
+        var objSpaceship = new Spaceship();
 
 
-        camMain = GetComponent<Camera>();
-        camMain = Camera.main;
-        spaceship.AddComponent<CameraController>();
-
-        camMain.farClipPlane = 1000000f;
-
-
-
-        camSkybox = GetComponent<Camera>();
-   //     camSkybox.farClipPlane = 1000000f;
-
-
-
-
-        camBack = GetComponent<Camera>();
-      //  camBack.farClipPlane = 1000000f;
+        camMain.transform.parent = objSpaceship.transform;  
+        camMain.transform.localPosition = new Vector3(objSpaceship.transform.position.x, spaceship.transform.position.y + 3f, spaceship.transform.position.z - 5f);
 
 
 
@@ -115,15 +101,15 @@ class Main : MonoBehaviour
 
 
 
-        Planet P000 = new Planet("P000", aeg / 10f, new Vector3(0f,0f,           0f));//  R 696000,7 км
-        Planet P100 = new Planet("P100",   20.439f, new Vector3(0f,0f, aeg * 0.187f));//  R   2439,7 км  L 0,386ае     m 0,055274 земной v 47,36 км/с  накл-ние 3,38°  относительно солн. экватора
-        Planet P200 = new Planet("P200",   60.051f, new Vector3(0f,0f, aeg * 0.123f));//  R   6051,8 km  L 0,72333199  m 0,815    земной v 35,02 км/с  накл-ние 3,86°
-        Planet P300 = new Planet("P300",   60.365f, new Vector3(0f,0f, aeg * 0.223f));//  R   6365,0 km  L 1,00000261  m 1        земной v 29,79 км/с  накл-ние 7,155°
-        Planet P400 = new Planet("P400",   30.385f, new Vector3(0f,0f, aeg * 0.224f));//  R   3385,0 km  L 1,5235      m 0,107    земной v 24,13 км/с  накл-ние 5,65°
-        Planet P500 = new Planet("P500",  290.911f, new Vector3(0f,0f, aeg * 0.203f));//  R  69911,0 km  L 5,2042665   m 317,8    земной v 13,07 км/с  накл-ние 6,09°  Наклон оси 3,13°
-        Planet P600 = new Planet("P600",  200.1f  , new Vector3(0f,0f, aeg * 0.339f));
-        Planet P700 = new Planet("P700",   50.35f , new Vector3(0f,0f, aeg * 0.490f));
-        Planet P800 = new Planet("P800",   50.9f  , new Vector3(0f,0f, aeg * 0.560f));
+        Planet P000 = new Planet("P000", aeg / 10f, new Vector3(       0f,0f,0f));//  R 696000,7 км
+        Planet P100 = new Planet("P100",   20.439f, new Vector3(aeg * 0.187f,0f,0f));//  R   2439,7 км  L 0,386ае     m 0,055274 земной v 47,36 км/с  накл-ние 3,38°  относительно солн. экватора
+        Planet P200 = new Planet("P200",   60.051f, new Vector3(aeg * 0.123f,0f,0f));//  R   6051,8 km  L 0,72333199  m 0,815    земной v 35,02 км/с  накл-ние 3,86°
+        Planet P300 = new Planet("P300",   60.365f, new Vector3(aeg * 0.223f,0f,0f));//  R   6365,0 km  L 1,00000261  m 1        земной v 29,79 км/с  накл-ние 7,155°
+        Planet P400 = new Planet("P400",   30.385f, new Vector3(aeg * 0.224f,0f,0f));//  R   3385,0 km  L 1,5235      m 0,107    земной v 24,13 км/с  накл-ние 5,65°
+        Planet P500 = new Planet("P500",  290.911f, new Vector3(aeg * 0.203f,0f,0f));//  R  69911,0 km  L 5,2042665   m 317,8    земной v 13,07 км/с  накл-ние 6,09°  Наклон оси 3,13°
+        Planet P600 = new Planet("P600",  200.1f  , new Vector3(aeg * 0.339f,0f,0f));
+        Planet P700 = new Planet("P700",   50.35f , new Vector3(aeg * 0.490f,0f,0f));
+        Planet P800 = new Planet("P800",   50.9f  , new Vector3(aeg * 0.560f,0f,0f));
 
         /*
                // Солнечная система
