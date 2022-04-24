@@ -3,20 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class Spaceship : MonoBehaviour 
+public class Spaceship // : MonoBehaviour 
 {
     public static GameObject spaceship;
 
-    public void Spaceship()
-
-
-
-
-
-
+    public Spaceship()
     {
         // Sphere Capsule Cylinder Cube Plane Quad
-        spaceship = ObjectFactory.CreatePrimitive(PrimitiveType.Cube);
+      //  spaceship = ObjectFactory.CreatePrimitive(PrimitiveType.Cube);
         spaceship.name                  = "spaceship";
         spaceship.transform.localScale  = new Vector3(0.009f, 0.004f, 0.006f);
 
@@ -35,7 +29,7 @@ public class Spaceship : MonoBehaviour
         spaceship.AddComponent<PlayerController>();
     }
 
-
+    ~Spaceship() {Debug.Log("Ded spaceship");}
 
 
 

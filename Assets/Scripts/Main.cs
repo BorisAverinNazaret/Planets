@@ -38,9 +38,11 @@ class Main : MonoBehaviour
 
 
 
-    public static GameObject CENTRE, objSpaceship;
+    public static GameObject CENTRE;
 
     public static Camera camSkybox, camMain, camBack;
+
+
 
 
     void Start()
@@ -52,7 +54,6 @@ class Main : MonoBehaviour
         CENTRE.transform.localScale = new Vector3(0.006f, 0.006f, 0.006f);
         Renderer rendCENTRE = CENTRE.GetComponent<Renderer>();
         rendCENTRE.material.color = Color.yellow;
-        // mainTexture = Resources.Load("Red") as Texture;
 
         //     CENTRE.AddComponent<AudioSource>();
 
@@ -68,11 +69,14 @@ class Main : MonoBehaviour
 
         */
 
-        var objSpaceship = new Spaceship();
+        //    var spaceship = new Spaceship();
+        var spaceship = ObjectFactory.CreatePrimitive(PrimitiveType.Cube);
+
+        spaceship.GetComponent<Spaceship>();
 
 
-        camMain.transform.parent = objSpaceship.transform;  
-        camMain.transform.localPosition = new Vector3(objSpaceship.transform.position.x, spaceship.transform.position.y + 3f, spaceship.transform.position.z - 5f);
+        camMain.transform.parent = spaceship.transform;  
+        camMain.transform.localPosition = new Vector3(spaceship.transform.position.x, spaceship.transform.position.y + 3f, spaceship.transform.position.z - 5f);
 
 
 
@@ -81,26 +85,21 @@ class Main : MonoBehaviour
                 CameraSkybox.transform.localEulerAngles = new Vector3(0f, 0f, 60f);
                 //   CameraSkybox.targetDisplay. = target;
 
-        */
+       
 
 
         camMain.transform.parent = spaceship.transform;
         camMain.transform.localPosition = new Vector3(spaceship.transform.position.x, spaceship.transform.position.y+0.003f, spaceship.transform.position.z-0.005f);
 
 
-
-
-
-
-        //    P000. .GetComponent<Renderer>().material.color = Color.red;
-
+         */
 
 
         // временно
         aeg = 10000f; // 149 597 870.691f;           Наклонение к плоскости Млечного Пути    60,19°
 
 
-
+        // Система с удобными расстояниями
         Planet P000 = new Planet("P000", aeg / 10f, new Vector3(       0f,0f,0f));//  R 696000,7 км
         Planet P100 = new Planet("P100",   20.439f, new Vector3(aeg * 0.187f,0f,0f));//  R   2439,7 км  L 0,386ае     m 0,055274 земной v 47,36 км/с  накл-ние 3,38°  относительно солн. экватора
         Planet P200 = new Planet("P200",   60.051f, new Vector3(aeg * 0.123f,0f,0f));//  R   6051,8 km  L 0,72333199  m 0,815    земной v 35,02 км/с  накл-ние 3,86°
