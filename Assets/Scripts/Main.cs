@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-using static Spaceship;
 
 
 class Main : MonoBehaviour
@@ -35,14 +34,14 @@ class Main : MonoBehaviour
     public       float aeg = 10000f;
 
 
-
+    public static GameObject go, myGameObject, Spaceship;
 
 
     public static GameObject CENTRE;
 
     public static Camera camSkybox, camMain, camBack;
 
-
+    
 
 
     void Start()
@@ -69,14 +68,23 @@ class Main : MonoBehaviour
 
         */
 
-        //    var spaceship = new Spaceship();
-        var spaceship = ObjectFactory.CreatePrimitive(PrimitiveType.Cube);
+        // GameObject go = new GameObject();
 
-        spaceship.GetComponent<Spaceship>();
+        //  go.AddComponent<spaceship>();   // .AddComponent<spaceship>();
 
 
-        camMain.transform.parent = spaceship.transform;  
-        camMain.transform.localPosition = new Vector3(spaceship.transform.position.x, spaceship.transform.position.y + 3f, spaceship.transform.position.z - 5f);
+        var Spaceship_ = new spaceship();
+        new spaceship();
+        //  spaceship.AddComponent<spaceship>();   // .AddComponent<spaceship>();
+
+
+        //  var spaceship = ObjectFactory.CreatePrimitive(PrimitiveType.Cube);
+
+        //  spaceship.GetComponent<Spaceship>();
+
+
+        camMain.transform.parent = Spaceship.transform;  
+        camMain.transform.localPosition = new Vector3(Spaceship.transform.position.x, Spaceship.transform.position.y + 3f, Spaceship.transform.position.z - 5f);
 
 
 

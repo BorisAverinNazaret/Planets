@@ -10,6 +10,9 @@ public class Planet
 {
     public GameObject planet;
 
+
+
+
     [SerializeField] public string fname; /* {get{return fname;} set{fname = value;}}*/
 
     public Planet(string name, float radius, Vector3 _Vector3)
